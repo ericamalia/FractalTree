@@ -1,22 +1,34 @@
 private double fractionLength = .8; 
-private int smallestBranch = 10; 
+private int smallestBranch = 8; 
 private double branchAngle = .5;  
 public void setup() 
 {   
 	size(640,480);    
 	noLoop(); 
-} 
+}
+
+
+	int r = 0;
+	int g = 240;
+	int b = 0;
 public void draw() 
 {   
-	background(0);   
-	  
+	background(0); 
+	
+	 stroke(r,g,b); 
 	line(320,480,320,380); 
-	 void mouseClicked() {
-		int ran = (int)(Math.random()*255);
-		stroke(0,ran,0); 
-	}
+	
 	drawBranches(320, 380, 100, 3* Math.PI/2); 
-}	
+}
+
+public void keyPressed(){
+	if (key == ' '){
+		r = (int)(Math.random()*255);
+		g = (int)(Math.random()*255);
+		b = (int)(Math.random()*255);
+	}
+}
+
 public void drawBranches(int x,int y, double branchLength, double angle) 
 {   
 	double angle1 = angle + branchAngle;
@@ -33,11 +45,14 @@ public void drawBranches(int x,int y, double branchLength, double angle)
 
 
 	if (branchLength < smallestBranch){
+		fill(180, 201, 168);
+		
+		ellipse(endX1, endY1, 5,3);
 
 	}
 	else{
 		drawBranches(endX1, endY1, branchLength, angle1);
 		drawBranches(endX2, endY2, branchLength, angle2);
 	}
-	//your code here    
+	  
 } 
