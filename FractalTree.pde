@@ -27,6 +27,7 @@ public void keyPressed(){
 		g = (int)(Math.random()*255);
 		b = (int)(Math.random()*255);
 	}
+	redraw();
 }
 
 public void drawBranches(int x,int y, double branchLength, double angle) 
